@@ -4,4 +4,4 @@ last Version:
 
     <groupId>com.guigarage</groupId>
     <artifactId>responsivefx</artifactId>
-    <version>0.8</version>
+    <version>0.10</version>
