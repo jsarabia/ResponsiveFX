@@ -63,8 +63,10 @@ public class ResponsiveHandler {
         }
         // don't track changes through this
         n.managedProperty().removeListener(MANAGED_LISTENER);
-        // If it's visible we use the stored value for "managed" property
-        n.setManaged(n.isVisible() ? (Boolean) n.getProperties().get(PROP_MANAGED_STATE) : false);
+        // If it's visible we use the stored value for "managed" property (if managed is not bound)
+        if (!n.managedProperty().isBound()) {
+            n.setManaged(n.isVisible() ? (Boolean) n.getProperties().get(PROP_MANAGED_STATE) : false);
+        }
         // need to track changes through API
         n.managedProperty().addListener(MANAGED_LISTENER);
     }
